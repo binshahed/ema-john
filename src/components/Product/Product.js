@@ -5,7 +5,7 @@ import './Product.css'
 
 
 const Product = (props) => {
-console.log(props);
+// console.log(props);
 return (
 <div className="product">
     <div className="image">
@@ -16,8 +16,10 @@ return (
         <p className="seller">by: <a href={props.product.url} target="_blank" rel="noopener noreferrer">{props.product.seller}</a></p>
         <p className="price">${props.product.price}</p>
         <p className="stock">only {props.product.stock} left in stock-order soon</p>
-        <button className="btn-add-to-cart"
-        onClick={props.handleAddProduct}>
+        <button
+             className="btn-add-to-cart"
+            onClick={()=>props.handleAddProduct(props.product)}
+        >
             <FontAwesomeIcon icon={faShoppingCart} /> add to cart</button>
     </div>
     
