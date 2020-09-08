@@ -11,7 +11,7 @@ const [cart, setCart]=useState([])
 
 const handleAddProduct=(product)=>{
     console.log('Product add',product)
-    const newCart=[...cart, product]
+    const newCart=[...cart,  product]
     setCart(newCart)
 }
 
