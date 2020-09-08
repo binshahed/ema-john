@@ -13,7 +13,7 @@ return (
     </div>
     <div className="body-text">
         <h3 className="product-name">{props.product.name}</h3>
-        <p className="seller">by: <a href={props.product.url} target="_blank" rel="noopener noreferrer">{props.product.seller}</a></p>
+        <p className="seller">by: <a href={props.product.url} target="_blank" >{props.product.seller}</a></p>
         <p className="price">${props.product.price}</p>
         <p className="stock">only {props.product.stock} left in stock-order soon</p>
         <button
