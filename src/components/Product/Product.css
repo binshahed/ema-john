@@ -10,8 +10,9 @@ color: #000;
 .product .image{
     margin-right: 20px;
 }
-.product .product-name{
+.product .product-name a{
     color: rgb(5, 71, 112);
+    font-size: 20px;
 }
 .product .price{
     font-weight: bold;

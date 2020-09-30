@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import "../Cart/Cart.css"
 
 const Cart = (props) => {
     const cart=props.cart;
-    console.log(cart);
+    // console.log(cart);
 
 
     // const total=cart.reduce( (total, prd)=> total + prd.price , 0)
@@ -29,12 +31,16 @@ const Cart = (props) => {
 
     return (
         <div>
-            <h4>Order Summery: </h4>
+            <h4 className="text-danger">Order Summery: </h4>
             <p>Items Order: {cart.length}</p>
-            <p>Total Price: {total}</p>
-            <p>Shipping Cost: {shipping}</p>
-            <p>tax: {tax}</p>
-            <p>Grand Total: {grandTotal}</p>
+            <p>Total Price: {total.toFixed(2)} $</p>
+            <p>Shipping Cost: {shipping} $</p>
+            <p>tax: {tax} $</p>
+            <p>Grand Total: {grandTotal} $</p>
+
+            <Link to="/review">
+                <button className="btn-add-to-cart">Order Review</button>
+            </Link>
 
         </div>
     );
