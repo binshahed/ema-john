@@ -11,7 +11,7 @@ const [products, setProducts] = useState(first10);
 const [cart, setCart]=useState([])
 
 const handleAddProduct=(product)=>{
-    console.log('Product add',product)
+    // console.log('Product add',product)
     const newCart=[...cart,  product]
     setCart(newCart)
     const sameProduct =newCart.filter( pd => pd.key === product.key)
