@@ -6,7 +6,7 @@ import Cart from '../Cart/Cart';
 import { addToDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
-const first10=fakeData.slice(0,30);
+const first10=fakeData.slice(0,10);
 const [products, setProducts] = useState(first10);
 const [cart, setCart]=useState([])
 
