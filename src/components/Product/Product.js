@@ -14,7 +14,10 @@ return (
         <img src={img} alt=""/>
     </div>
     <div className="body-text">
+        
+           
         <h3 className="product-name"><Link to={"/product/"+key}>{name}</Link></h3>
+        
         <p className="seller">by: <a href={url} target="_blank" >{seller}</a></p>
         <p className="price">${price}</p>
         <p className="stock">only {stock} left in stock-order soon</p>

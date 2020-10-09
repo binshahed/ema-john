@@ -9,8 +9,6 @@ const ProductDetail = () => {
 
     return (
         <div>
-            
-           
             <Product showAddToCart={false} product={product}></Product>
         </div>
     );
