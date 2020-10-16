@@ -8,12 +8,13 @@ const Cart = (props) => {
 
     const cart=props.cart;
     console.log(cart);
-
+    let cartTotal =0 
     // const total=cart.reduce( (total, prd)=> total + prd.price , 0)
     let total = 0;
     for( let i=0; i<cart.length; i++){
         const product=cart[i];
-        total=(total+product.price*product.quantity);
+        cartTotal =cartTotal +product.quantity
+        total=(total + product.price * product.quantity);
         
     }
     
@@ -35,7 +36,7 @@ const Cart = (props) => {
     return (
         <div>
             <h4 className="text-danger">Order Summery: </h4>
-            <p>Items Order: {cart.length}</p>
+            <p>Items Order: {cartTotal}</p>
             <p>Total Price: {total.toFixed(2)} $</p>
             <p>Shipping Cost: {shipping} $</p>
             <p>tax: {tax} $</p>

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
+import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import fakeData from '../../fakeData'
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
+import { useHistory } from 'react-router-dom';
 
 const Review = () => {
 
-    const [cart, setCart]=useState([])
+        const [cart, setCart]=useState([])
+        const [orderPlaced, setOrderPlaced] =useState(false)
+        const history= useHistory()
 
         const removeProduct= (productKey) => {
             console.log("Product Removed", productKey);
@@ -14,24 +17,27 @@ const Review = () => {
             setCart(newCart)
             removeFromDatabaseCart(productKey)
         }
+        const handleProceedCheckout = () => {
+            history.push('/shipment')
+        }
 
 
-    useEffect(()=>{
-        const savedCart=getDatabaseCart();
+        useEffect(()=>{
+            const savedCart=getDatabaseCart();
         
-        const productKeys=Object.keys(savedCart)
+            const productKeys=Object.keys(savedCart)
 
-        const cartProducts=productKeys.map (key => {
+            const cartProducts=productKeys.map (key => {
             const product= fakeData.find(pd => pd.key===key);
 
             product.quantity=savedCart[key]
             return product
-        }, []);
-        setCart(cartProducts)
+            }, []);
+            setCart(cartProducts)
         
-    }, [])
-    return (
-        <div className="shop-container">
+        }, [])
+        return (
+            <div className="shop-container">
             <div className="product-container">
 
             { 
@@ -43,12 +49,12 @@ const Review = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
-                    <button className="btn-add-to-cart">Place Order</button>
+                    <button onClick={handleProceedCheckout} className="btn-add-to-cart">Proceed Checkout</button>
                 </Cart>
-        </div>
+            </div>
 
-        </div>
-    );
+            </div>
+        );
 };
 
 export default Review;
